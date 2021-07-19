@@ -1,0 +1,271 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Materials/grey_light.tres" type="Material" id=1]
+[ext_resource path="res://Materials/elite_navigator.png" type="Texture" id=2]
+[ext_resource path="res://Props/Tree/Tree.tscn" type="PackedScene" id=3]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 1
+background_sky = SubResource( 1 )
+background_color = Color( 0.00392157, 0, 0.00392157, 1 )
+ambient_light_color = Color( 0.0431373, 0.0352941, 0.0431373, 1 )
+fog_enabled = true
+fog_color = Color( 0.188235, 0.027451, 0.223529, 1 )
+fog_depth_end = 333.0
+fog_depth_curve = 2.07053
+fog_height_enabled = true
+fog_height_min = 7.0
+fog_height_max = 55.3
+fog_height_curve = 0.933031
+tonemap_mode = 2
+auto_exposure_enabled = true
+ssao_enabled = true
+ssao_intensity = 13.7
+ssao_light_affect = 0.21
+ssao_color = Color( 0.0823529, 0, 0.0862745, 1 )
+dof_blur_far_enabled = true
+dof_blur_far_distance = 46.67
+dof_blur_far_transition = 15.0
+dof_blur_near_distance = 15.0
+dof_blur_near_transition = 3.0
+glow_bloom = 0.54
+glow_hdr_threshold = 0.13
+adjustment_enabled = true
+adjustment_brightness = 1.2
+adjustment_contrast = 0.7
+adjustment_saturation = 5.0
+
+[sub_resource type="CapsuleMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="CylinderMesh" id=6]
+
+[sub_resource type="PlaneMesh" id=7]
+
+[sub_resource type="PrismMesh" id=8]
+subdivide_width = 2
+subdivide_height = 2
+subdivide_depth = 3
+
+[sub_resource type="SphereMesh" id=9]
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0.615686, 0.133333, 0.654902, 1 )
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 0.921569, 0.643137, 0.929412, 1 )
+
+[sub_resource type="PlaneMesh" id=12]
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_texture = ExtResource( 2 )
+
+[node name="NavQuest" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="GIProbe" type="GIProbe" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0 )
+visible = false
+extents = Vector3( 44, 23, 44 )
+
+[node name="Lights" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+visible = false
+
+[node name="OmniLight" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.526022, 10.8493, -31.7303 )
+light_color = Color( 0, 0.0431373, 0.0980392, 1 )
+shadow_enabled = true
+omni_range = 41.4562
+omni_attenuation = 2.2974
+
+[node name="OmniLight2" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8679, 10.8493, 22.8646 )
+light_color = Color( 0.203922, 0, 0.109804, 1 )
+shadow_enabled = true
+omni_range = 41.4562
+omni_attenuation = 2.2974
+
+[node name="OmniLight3" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.2379, 13.2369, 23.5015 )
+light_color = Color( 0, 0.0431373, 0, 1 )
+shadow_enabled = true
+omni_range = 41.4562
+omni_attenuation = 2.2974
+
+[node name="Primatives" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="CapsulePivot" type="Spatial" parent="Primatives"]
+
+[node name="Capsule" type="MeshInstance" parent="Primatives/CapsulePivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="CubePivot" type="Spatial" parent="Primatives"]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0, 0, 0 )
+
+[node name="Cube" type="MeshInstance" parent="Primatives/CubePivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 4 )
+
+[node name="CylinderPivot" type="Spatial" parent="Primatives"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0 )
+
+[node name="Cylinder" type="MeshInstance" parent="Primatives/CylinderPivot"]
+transform = Transform( 0.99, 0, 0, 0, 0.99, 0, 0, 0, 0.99, 0, 0, 8 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 4 )
+
+[node name="PlanePivot" type="Spatial" parent="Primatives"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="Plane" type="MeshInstance" parent="Primatives/PlanePivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11959e-07, 0, 7 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 4 )
+
+[node name="PrismPivot" type="Spatial" parent="Primatives"]
+transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 0, 0 )
+
+[node name="Prism" type="MeshInstance" parent="Primatives/PrismPivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 4 )
+
+[node name="SpherePivot" type="Spatial" parent="Primatives"]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0 )
+
+[node name="Sphere" type="MeshInstance" parent="Primatives/SpherePivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 4 )
+
+[node name="Top" type="MeshInstance" parent="Primatives"]
+transform = Transform( 3.69355, 0, 0, 0, 1.25928, 0, 0, 0, 3.69355, 0, 6.82816, 0 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 14 )
+
+[node name="LightPivot" type="Spatial" parent="Primatives/Top"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.53729, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="Primatives/Top/LightPivot"]
+transform = Transform( 0.270742, 0, 0, 0, -0.433592, 0.665282, 0, -0.226821, -0.147829, 0, -4.48861, 1.00003 )
+light_color = Color( 0.0117647, 0.207843, 0, 1 )
+shadow_enabled = true
+spot_range = 14.2284
+spot_attenuation = 1.68179
+spot_angle = 31.2
+
+[node name="LightPivot2" type="Spatial" parent="Primatives/Top"]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 3.53729, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="Primatives/Top/LightPivot2"]
+transform = Transform( 0.270742, 0, 0, 0, -0.433592, 0.665282, 0, -0.226821, -0.147829, 0, -4.48861, 1.00003 )
+light_color = Color( 0.290196, 0.278431, 0, 1 )
+shadow_enabled = true
+spot_range = 14.2284
+spot_attenuation = 1.68179
+spot_angle = 31.2
+
+[node name="LightPivot3" type="Spatial" parent="Primatives/Top"]
+transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 3.53729, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="Primatives/Top/LightPivot3"]
+transform = Transform( 0.270742, -6.70552e-08, -4.47035e-08, 0, -0.433592, 0.665282, -8.19564e-08, -0.226821, -0.147829, 2.98023e-07, -4.48861, 1.00003 )
+light_color = Color( 0.309804, 0.211765, 0, 1 )
+shadow_enabled = true
+spot_range = 14.2284
+spot_attenuation = 1.68179
+spot_angle = 31.2
+
+[node name="LightPivot4" type="Spatial" parent="Primatives/Top"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3.53729, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="Primatives/Top/LightPivot4"]
+transform = Transform( 0.270742, 0, 0, 0, -0.433592, 0.665282, 0, -0.226821, -0.147829, 0, -4.48861, 1.00003 )
+light_color = Color( 0.176471, 0, 0, 1 )
+shadow_enabled = true
+spot_range = 14.2284
+spot_attenuation = 1.68179
+spot_angle = 31.2
+
+[node name="PurplePivot" type="Spatial" parent="Primatives/Top"]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 3.53729, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="Primatives/Top/PurplePivot"]
+transform = Transform( 0.270742, 0, 0, 0, -0.433592, 0.665282, 0, -0.226821, -0.147829, 0, -4.48861, 1.00003 )
+light_color = Color( 0.2, 0, 0.266667, 1 )
+shadow_enabled = true
+spot_range = 14.2284
+spot_attenuation = 1.68179
+spot_angle = 31.2
+
+[node name="LightPivot6" type="Spatial" parent="Primatives/Top"]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0, 3.53729, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="Primatives/Top/LightPivot6"]
+transform = Transform( 0.270742, 0, 0, 0, -0.433592, 0.665282, 0, -0.226821, -0.147829, 0, -4.48861, 1.00003 )
+light_color = Color( 0.196078, 0.239216, 0.396078, 1 )
+shadow_enabled = true
+spot_range = 14.2284
+spot_attenuation = 1.68179
+spot_angle = 31.2
+
+[node name="Tower" type="MeshInstance" parent="Primatives/Top"]
+transform = Transform( 0.881833, 0, 0, 0, 4.16667, 0, 0, 0, 0.881833, 0, -4.13265, 0 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 11 )
+
+[node name="Props" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11 )
+
+[node name="Tree" parent="Props" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7742, -9.53674e-07, 26.7775 )
+
+[node name="Tree2" parent="Props" instance=ExtResource( 3 )]
+transform = Transform( -0.390075, -0.0188595, 0.649875, -0.0366144, 0.757305, -1.09119e-09, -0.649116, -0.0313837, -0.39053, 17.8908, 0.629419, 26.19 )
+
+[node name="Tree3" parent="Props" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04376, 9.53674e-07, -8.8273 )
+
+[node name="Tree4" parent="Props" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0438, 9.53674e-07, 31.1727 )
+
+[node name="TrickCube" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -7 )
+visible = false
+
+[node name="Top" type="MeshInstance" parent="TrickCube"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 4 )
+
+[node name="Right" type="MeshInstance" parent="TrickCube"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 1, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 4 )
+
+[node name="Front" type="MeshInstance" parent="TrickCube"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 1, 1 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 4 )
+
+[node name="TrigFloor" type="MeshInstance" parent="."]
+transform = Transform( 42, 0, 0, 0, -1.83588e-06, 4, 0, -42, -1.74846e-07, 0, -4, -11 )
+mesh = SubResource( 8 )
+material/0 = ExtResource( 1 )
+
+[node name="Top10" type="MeshInstance" parent="."]
+transform = Transform( 0.437481, 0, 0, 0, 0.437481, 0, 0, 0, 0.437481, 17.1005, 1.0084, 19.8689 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 13 )

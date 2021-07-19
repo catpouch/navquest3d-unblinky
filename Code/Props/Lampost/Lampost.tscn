@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Props/Lampost/lens.tres" type="Material" id=1]
+[ext_resource path="res://Materials/grey_light.tres" type="Material" id=2]
+[ext_resource path="res://Materials/grey_dark.tres" type="Material" id=3]
+[ext_resource path="res://Props/Lampost/Lampost.gd" type="Script" id=4]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 0.396
+bottom_radius = 0.706
+height = 22.392
+radial_segments = 24
+
+[sub_resource type="CylinderMesh" id=2]
+top_radius = 0.75
+height = 5.0
+radial_segments = 24
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 1.4, 0.5, 18 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 2, 0.88, 2.916 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 1.567, 0.77, 1.709 )
+
+[sub_resource type="CylinderMesh" id=6]
+
+[node name="Lamp" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="Mast" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Mast2" type="MeshInstance" parent="."]
+transform = Transform( 1.43128, 0, 0, 0, 0.927578, 0, 0, 0, 1.43128, 0, 2.544, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 3 )
+
+[node name="Arm" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 25.6189, -8 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 3 )
+
+[node name="Casing" type="MeshInstance" parent="Arm"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.505194, -7.89104 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 2 )
+
+[node name="Lens" type="MeshInstance" parent="Arm"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.711889, -8.29617 )
+mesh = SubResource( 5 )
+material/0 = ExtResource( 1 )
+
+[node name="SpotLight" type="SpotLight" parent="Arm/Lens"]
+transform = Transform( 1, 0, 0, 0, 0.266195, 0.963919, 0, -0.963919, 0.266195, 0, -1.05343, 0.185852 )
+shadow_enabled = true
+spot_range = 52.2
+spot_attenuation = 0.5
+spot_angle = 30.0
+
+[node name="Base" type="MeshInstance" parent="."]
+transform = Transform( 6.9, 0, 0, 0, 1, 0, 0, 0, 6.9, 0, -1, 0 )
+mesh = SubResource( 6 )
+material/0 = ExtResource( 2 )

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/NavQuest.tscn" type="PackedScene" id=2]
+
+[node name="Main" type="Node"]
+
+[node name="CameraPivot" type="Spatial" parent="."]
+transform = Transform( 0.758351, -0.420853, 0.497783, 0, 0.76365, 0.645631, -0.651847, -0.489615, 0.579114, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="CameraPivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, -2.98023e-08, 1, 7.62939e-06, 0, 119.938 )
+fov = 66.0
+far = 300.1
+
+[node name="NavQuest" parent="." instance=ExtResource( 2 )]

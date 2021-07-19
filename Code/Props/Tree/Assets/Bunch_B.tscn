@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Materials/grey_light.tres" type="Material" id=1]
+[ext_resource path="res://Materials/grey_dark.tres" type="Material" id=2]
+
+[sub_resource type="CapsuleMesh" id=1]
+
+[node name="Bunch_B" type="Spatial"]
+transform = Transform( 0.445017, 0.0915437, 0.890831, -0.217205, 0.976092, 0.0081999, -0.868782, -0.197142, 0.454261, 0, 0, 0 )
+
+[node name="Capsule2" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Capsule4" type="MeshInstance" parent="."]
+transform = Transform( 0.226059, 0.948837, 0.220466, -0.362376, 0.291995, -0.885112, -0.904202, 0.120196, 0.409844, -2.98023e-08, 0.746464, -0.27092 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Capsule3" type="MeshInstance" parent="."]
+transform = Transform( 0.352136, 0, 0.935949, 0, 1, 0, -0.935949, 0, 0.352136, 9.53674e-07, 0.134218, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )

@@ -1,0 +1,140 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Props/Tree/Assets/Bunch_A.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Props/Tree/Assets/Bunch_C.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Props/Tree/Assets/Bunch_D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Props/Tree/Assets/Bunch_B.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Props/Tree/Assets/Bunch_E.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Materials/grey_dark.tres" type="Material" id=6]
+[ext_resource path="res://Materials/grey_light.tres" type="Material" id=7]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 0.547
+bottom_radius = 0.888
+
+[sub_resource type="CylinderMesh" id=2]
+top_radius = 0.499
+bottom_radius = 1.444
+
+[sub_resource type="CylinderMesh" id=3]
+top_radius = 0.655
+
+[sub_resource type="CylinderMesh" id=4]
+bottom_radius = 2.0
+
+[node name="Tree" type="Spatial"]
+
+[node name="Sticks" type="Spatial" parent="."]
+
+[node name="Top" type="MeshInstance" parent="Sticks"]
+transform = Transform( 0.468584, 2.35516, 0, -0.386257, 2.85714, 0, 0, 0, 0.60726, -0.431682, 10.9618, 0.000337601 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 7 )
+
+[node name="Branch6" type="MeshInstance" parent="Sticks/Top"]
+transform = Transform( 0.0577082, -2.11294, 0.175703, 0.0448562, 0.169441, 0.0308622, -0.236571, 0.679033, 0.26042, -2.27297, 0.542536, 0.634867 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 6 )
+
+[node name="Branch4" type="MeshInstance" parent="Sticks/Top"]
+transform = Transform( -0.143827, -2.38854, 0.0477876, 0.0150928, 0.0173599, 0.0451104, -0.27679, 1.27633, 0.0666187, -5.64903, -0.0524846, -2.38176 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 6 )
+
+[node name="Trunk4" type="MeshInstance" parent="Sticks/Top"]
+transform = Transform( -0.23661, 1.72457, 0.141615, 0.0287977, 0.215652, -0.0496218, -0.316084, -0.560486, -0.274089, 1.91597, 0.210105, -0.662485 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 6 )
+
+[node name="Trunk5" type="MeshInstance" parent="Sticks/Top"]
+transform = Transform( 0.258931, -2.68765, -0.43006, 0.0957938, 0.195402, 0.031267, -3.80822e-08, -3.19889, 0.432335, -2.98534, -0.0877354, -3.28802 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 6 )
+
+[node name="Trunk" type="MeshInstance" parent="Sticks"]
+transform = Transform( 0.896486, -1.91847, 0, 0.443071, 3.88172, 0, 0, 0, 1, -1.82512, 5.65606, 0 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 6 )
+
+[node name="Trunk2" type="MeshInstance" parent="Sticks"]
+transform = Transform( 1, 0, 0, 0, 2.1131, 0, 0, 0, 1, 0, 0.0349483, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 6 )
+
+[node name="Branch" type="MeshInstance" parent="Sticks"]
+transform = Transform( 0.130483, -0.472032, 0.377475, 0.210271, 2.85811, -0.0210219, -0.318583, 1.69308, 0.140728, -4.12531, 12.1234, 1.68364 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 6 )
+
+[node name="Branch3" type="MeshInstance" parent="Sticks"]
+transform = Transform( 0.280836, 1.6184, -0.256282, -0.402255, 1.1299, -0.178925, -1.46207e-08, 1.63154, 0.378131, 0.0745449, 6.35566, 1.94406 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 6 )
+
+[node name="Branch2" type="MeshInstance" parent="Sticks"]
+transform = Transform( 0.505923, -0.196292, -0.236075, 0.235085, 0.282386, 0.591423, -0.054995, -0.598669, 0.356373, -0.831176, 3.4677, -1.10184 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 6 )
+
+[node name="Branch5" type="MeshInstance" parent="Sticks"]
+transform = Transform( 0.177927, -1.08354, 0.344307, -0.326486, 0.81619, 0.240379, -0.211448, -2.172, -0.081434, -3.59117, 7.45463, -2.28543 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 6 )
+
+[node name="Bunch_A" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69229, 7.86924, 5.30442 )
+
+[node name="Bunch_A2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.357061, 0.286768, -1.30428, 0.228913, 1.31697, 0.352226, 1.31567, -0.306966, 0.292687, -3.0037, 12.9607, -3.98437 )
+
+[node name="Bunch_A3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.195147, 0.156729, -0.712838, 0.125109, 0.719774, 0.192504, 0.719062, -0.167768, 0.159964, -1.16232, 12.0773, 2.76672 )
+
+[node name="Bunch_B" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.555268, 0.114223, 1.11153, -0.271016, 1.21791, 0.0102314, -1.08402, -0.245983, 0.566802, -4.34219, 15.0601, 3.43996 )
+
+[node name="Bunch_B3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.445017, 0.0915437, 0.890831, -0.217205, 0.976092, 0.0081999, -0.868782, -0.197142, 0.454261, -3.61772, 9.52611, -3.10733 )
+
+[node name="Bunch_B4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.440716, 0.0906589, 0.882221, -0.215106, 0.966658, 0.00812065, -0.860385, -0.195237, 0.449871, -1.85203, 11.7436, 4.2611 )
+
+[node name="Bunch_B2" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.829872, -0.189077, 0.52494, -0.217205, 0.976092, 0.0081999, -0.51394, -0.107215, -0.8511, -0.63018, 15.0344, 0.333199 )
+
+[node name="Bunch_C" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.145047, -0.978412, -0.14721, 0.473475, -0.0620045, 0.878622, -0.868782, -0.197142, 0.454261, -3.81029, 14.5652, -1.12724 )
+
+[node name="Bunch_C2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.223081, -1.50479, -0.226408, 0.728202, -0.0953626, 1.35132, -1.33618, -0.303203, 0.698651, -5.20441, 9.90539, 0.354232 )
+
+[node name="Bunch_C3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.173595, -1.17099, -0.176184, 0.566665, -0.0742084, 1.05155, -1.03978, -0.235944, 0.54367, 3.60597, 10.6476, -0.50889 )
+
+[node name="Bunch_C4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.106757, -0.720128, -0.108349, 0.348486, -0.0456364, 0.646681, -0.639439, -0.1451, 0.334344, -2.22776, 14.7813, 2.41792 )
+
+[node name="Bunch_D" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92354, 13.9181, 0 )
+
+[node name="Bunch_E" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8809, 8.23635, -5.1152 )
+
+[node name="Bunch_E2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.784333, 0, -0.62034, 0, 1, 0, 0.62034, 0, 0.784333, 1.08204, 9.78341, 5.70768 )
+
+[node name="Bunch_E3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.0599231, -0.587412, -0.273324, -0.403226, 0.181036, -0.477476, 0.507116, 0.21336, -0.347361, 1.74746, 11.3523, 5.6978 )
+
+[node name="Bunch_E4" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.120923, -0.587412, 0.252338, 0.611643, 0.181036, 0.128326, -0.186063, 0.21336, 0.585839, 0.504156, 14.8009, 0.527629 )
+
+[node name="Bunch_E5" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.120923, -0.587412, 0.252338, 0.611643, 0.181036, 0.128326, -0.186063, 0.21336, 0.585839, -3.62846, 11.3839, 2.52364 )
+
+[node name="Bunch_E6" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.137394, -0.667424, 0.286709, 0.694957, 0.205696, 0.145805, -0.211407, 0.242422, 0.665638, 4.23922, 11.3839, -1.02847 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.52293, 0.852376, 0, -0.852376, 0.52293, 0, 30.1577, 19.9446 )
+visible = false
