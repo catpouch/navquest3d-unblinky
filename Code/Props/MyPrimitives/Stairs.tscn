@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 1, 0.25, 1 )
+
+[node name="Stairs" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.248795, 0.0532502, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.988707, 0, -0.149863, 0, 1, 0, 0.149863, 0, 0.988707, -0.00739479, 0.223544, 0.0668955 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 0.881748, 0, -0.47172, 0, 1, 0, 0.47172, 0, 0.881748, 0.436672, 0.421421, 0.247565 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance4" type="MeshInstance" parent="."]
+transform = Transform( 0.881748, 0, -0.47172, 0, 1, 0, 0.47172, 0, 0.881748, 0.666357, 0.646044, 0.608842 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance5" type="MeshInstance" parent="."]
+transform = Transform( 0.704201, 0, -0.710001, 0, 1, 0, 0.710001, 0, 0.704201, 0.837854, 0.905008, 0.882456 )
+mesh = SubResource( 1 )
+material/0 = null
