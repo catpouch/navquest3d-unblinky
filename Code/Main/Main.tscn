@@ -9,6 +9,7 @@ transform = Transform( 0.758351, -0.420853, 0.497783, 0, 0.76365, 0.645631, -0.6
 
 [node name="Camera" type="Camera" parent="CameraPivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, -2.98023e-08, 1, 7.62939e-06, 0, 119.938 )
+visible = false
 fov = 66.0
 far = 300.1
 
